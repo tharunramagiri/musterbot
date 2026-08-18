@@ -34,6 +34,7 @@ export type ShapeId =
   | 'nuage'
   | 'goutte'
   | 'boule'
+  | 'etoile'
 
 export interface BotShape {
   id: ShapeId
@@ -95,6 +96,22 @@ const ball = normalize([
   0.995123, 0.99027, 0.984434, 0.978159, 0.97275, 0.968845, 0.966791, 0.966529
 ])
 
+
+
+/**
+ * Etoile : un sparkle a quatre pointes. Profil radial |cos(2a)|^p ordonne vers
+ * les quatre directions cardinales (haut/bas/gauche/droite) ; les vallees
+ * diagonales rentrent dans le corps. Le creux (`inner` = 0.62) reste assez
+ * haut pour que les yeux du bot — notamment ceux, ecartes, de `wide` — restent
+ * dans la silhouette : plus bas, le test d'ajustement des yeux echoue.
+ */
+const star = normalize(
+  ANGLES.map((a) => {
+    const c = Math.abs(Math.cos(2 * a))
+    return 0.62 + 0.38 * Math.pow(c, 0.6)
+  })
+)
+
 export const SHAPES: BotShape[] = [
   { id: 'cercle', radii: new Array(PROFILE_SAMPLES).fill(1) },
   { id: 'galet', radii: pebble },
@@ -108,7 +125,8 @@ export const SHAPES: BotShape[] = [
   { id: 'hexagone', radii: regularPolygonProfile(6, 1.04, 0.26, 0) },
   { id: 'nuage', radii: cloud },
   { id: 'goutte', radii: droplet },
-  { id: 'boule', radii: ball }
+  { id: 'boule', radii: ball },
+  { id: 'etoile', radii: star }
 ]
 
 // Map indexee par `string` et non par `ShapeId` : les appelants interrogent avec
