@@ -33,6 +33,7 @@ export type ShapeId =
   | 'hexagone'
   | 'nuage'
   | 'goutte'
+  | 'boule'
 
 export interface BotShape {
   id: ShapeId
@@ -76,6 +77,24 @@ const droplet = normalize(
 /** Capsule couchee : enveloppe de deux disques cote a cote. */
 const capsule = profileFromPolygon(hullOfCircles(-0.42, 0, 0.62, 0.42, 0, 0.62), 0, 0)
 
+
+
+/**
+ * Boule : silhouette relevee sur l'asset Lottie « Шар » (ball) au repos.
+ * Un blob presque rond, legerement affaisse — profil mesure, pas une formule.
+ * Releve au rayon depuis le centre de la silhouette (voir la doc, pas un cercle).
+ */
+const ball = normalize([
+  0.968376, 0.972193, 0.977684, 0.983966, 0.990498, 0.99643, 0.999759, 1.0,
+  0.994771, 0.984401, 0.967652, 0.946284, 0.921657, 0.899806, 0.886214, 0.877105,
+  0.860528, 0.876587, 0.890784, 0.90368, 0.91608, 0.928282, 0.938926, 0.946809,
+  0.950597, 0.950276, 0.946109, 0.938938, 0.929936, 0.920336, 0.910954, 0.903133,
+  0.897276, 0.894251, 0.894077, 0.897441, 0.904604, 0.915532, 0.930747, 0.948565,
+  0.958122, 0.959563, 0.955318, 0.94754, 0.938133, 0.928446, 0.919593, 0.917231,
+  0.929316, 0.942654, 0.956396, 0.969565, 0.981131, 0.99009, 0.995479, 0.99715,
+  0.995123, 0.99027, 0.984434, 0.978159, 0.97275, 0.968845, 0.966791, 0.966529
+])
+
 export const SHAPES: BotShape[] = [
   { id: 'cercle', radii: new Array(PROFILE_SAMPLES).fill(1) },
   { id: 'galet', radii: pebble },
@@ -88,7 +107,8 @@ export const SHAPES: BotShape[] = [
   // 0deg : sommets a gauche et a droite, donc aretes du haut et du bas plates
   { id: 'hexagone', radii: regularPolygonProfile(6, 1.04, 0.26, 0) },
   { id: 'nuage', radii: cloud },
-  { id: 'goutte', radii: droplet }
+  { id: 'goutte', radii: droplet },
+  { id: 'boule', radii: ball }
 ]
 
 // Map indexee par `string` et non par `ShapeId` : les appelants interrogent avec
