@@ -35,6 +35,7 @@ export type ShapeId =
   | 'goutte'
   | 'boule'
   | 'etoile'
+  | 'star'
 
 export interface BotShape {
   id: ShapeId
@@ -112,6 +113,22 @@ const star = normalize(
   })
 )
 
+
+
+/**
+ * Etoile a cinq branches : une etoile classique, une pointe vers le haut.
+ * Profil radial |cos(2.5a + pi/4)|^p : cinq pointes reparties tous les 72deg,
+ * cinq vallees qui rentrent dans le corps. Meme creux (0.62) que le sparkle,
+ * pour la meme raison : les yeux de `wide` doivent rester dans la silhouette.
+ */
+const star5 = normalize(
+  ANGLES.map((a) => {
+    // pi/4 avance la pointe sur le haut de l'ecran (a = -90deg), y vers le bas
+    const c = Math.abs(Math.cos(2.5 * a + Math.PI / 4))
+    return 0.62 + 0.38 * Math.pow(c, 0.6)
+  })
+)
+
 export const SHAPES: BotShape[] = [
   { id: 'cercle', radii: new Array(PROFILE_SAMPLES).fill(1) },
   { id: 'galet', radii: pebble },
@@ -126,7 +143,8 @@ export const SHAPES: BotShape[] = [
   { id: 'nuage', radii: cloud },
   { id: 'goutte', radii: droplet },
   { id: 'boule', radii: ball },
-  { id: 'etoile', radii: star }
+  { id: 'etoile', radii: star },
+  { id: 'star', radii: star5 }
 ]
 
 // Map indexee par `string` et non par `ShapeId` : les appelants interrogent avec

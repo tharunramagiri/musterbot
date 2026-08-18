@@ -142,7 +142,8 @@ const en: typeof fr = {
     nuage: 'Cloud',
     goutte: 'Droplet',
     boule: 'Ball',
-    etoile: 'Sparkle'
+    etoile: 'Sparkle',
+    star: 'Star'
   },
 
   colors: {

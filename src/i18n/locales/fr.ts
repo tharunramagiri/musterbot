@@ -167,7 +167,8 @@ export default {
     nuage: 'Nuage',
     goutte: 'Goutte',
     boule: 'Boule',
-    etoile: 'Étoile'
+    etoile: 'Étoile',
+    star: 'Étoile à 5 branches'
   },
 
   colors: {

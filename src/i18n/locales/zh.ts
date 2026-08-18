@@ -145,7 +145,8 @@ const zh: typeof fr = {
     nuage: '云朵',
     goutte: '水滴',
     boule: '圆球',
-    etoile: '星形'
+    etoile: '星形',
+    star: '五角星'
   },
 
   colors: {
