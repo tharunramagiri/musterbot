@@ -471,25 +471,19 @@ const NOM = 'MUSTERBOT'
  */
 
 /**
- * La boule redevient RONDE le temps d'un tour, quelle que soit la forme choisie —
- * dans les reglages comme a l'arrivee sur le site. Le choix de l'utilisateur
- * n'est pas touche, seulement ce qu'on affiche : il revient intact ensuite, et il
- * MORPHE en revenant, ce qui fait de la reprise de sa forme un temps de la mise
- * en scene plutot qu'un raccord.
+ * La boule redevient RONDE le temps de l'arrivee uniquement (`nue`) : l'orbite
+ * d'accueil ne se lit comme une sphere qu'en cercle. Une fois la page posee, la
+ * forme est celle choisie par l'utilisateur — l'etoile par defaut, desormais —
+ * y compris dans les reglages, ou l'avatar suit le curseur sans orbite.
  *
- * Deux raisons, et la seconde est mesuree :
- *
- * - une goutte ou un hexagone en sortie de morph ne se lisent pas comme une boule
- *   qui tourne, alors que la video montre une sphere ;
- * - surtout, les yeux sont recolles au contour REEL (`radiusAtAngle`) pour ne pas
- *   deborder de la silhouette. Sur un cercle ce rayon est constant et le tour est
- *   lisse ; sur une goutte, les yeux montent et descendent en suivant le profil —
- *   jusqu'a 25 px d'ecart vertical avec la trajectoire du cercle. Ca se voit
- *   comme un sautillement, et ce n'est pas corrigeable ailleurs : `radiusAtAngle`
- *   fait exactement ce pour quoi il est la.
+ * La raison de l'ancien forcage du cercle dans les reglages etait le tourbillon
+ * d'entree : les yeux recolles au contour REEL (`radiusAtAngle`) sautillaient en
+ * suivant un profil non circulaire pendant la rotation. Depuis que le repos en
+ * reglages ne tourne plus sur lui-meme, il n'y a plus de tour a rendre lisse, et
+ * l'etoile peut s'afficher telle quelle.
  */
 const forme = computed(() =>
-  view.value === 'reglages' || nue.value
+  nue.value
     ? DEFAULT_SHAPE
     : view.value === 'equipe'
       ? 'star'
