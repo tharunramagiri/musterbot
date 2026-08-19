@@ -2,12 +2,12 @@
 import { computed } from 'vue'
 import { langue, LANGUES, t } from '@/i18n'
 
-/** Comptes de l'auteur. */
-const X = 'https://x.com/worlz_'
+/** Site et depot de l'auteur. */
+const SITE = 'https://ramagiritharun.in'
 const GITHUB = 'https://github.com/tharunramagiri/musterbot'
 
 /**
- * « Cree par Jeremy » : le nom est un lien, donc la phrase se coupe autour de
+ * « Cree par {name} » : le nom est un lien, donc la phrase se coupe autour de
  * lui. On ne peut pas la decouper en deux traductions (« Cree par » + le nom) —
  * le chinois met l'auteur AU MILIEU (« 由 X 创作 ») et l'anglais devant le verbe.
  * Le gabarit garde donc `{name}` et c'est ici qu'on separe ce qui vient avant de
@@ -143,11 +143,11 @@ function auClavier(event: KeyboardEvent, index: number) {
       {{ credits.avant
       }}<a
         class="font-medium text-[var(--ink)] underline decoration-[var(--line)] underline-offset-2 transition hover:decoration-[var(--ink)]"
-        :href="X"
+        :href="SITE"
         target="_blank"
         rel="noopener noreferrer"
         :aria-label="t('settings.creditsAria')"
-        >Jérémy</a
+        >ramagiritharun</a
       >{{ credits.apres }}
     </p>
   </div>

@@ -154,7 +154,7 @@ export default {
     language: 'Langue',
     about: 'À propos',
     credits: 'Créé avec ❤️ par {name}',
-    creditsAria: 'Jérémy sur X, dans un nouvel onglet',
+    creditsAria: 'ramagiritharun, sur son site, dans un nouvel onglet',
     github: 'Voir le projet sur GitHub',
     githubAria: 'Le dépôt du projet sur GitHub, dans un nouvel onglet'
   },
