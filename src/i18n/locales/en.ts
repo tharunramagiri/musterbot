@@ -20,7 +20,8 @@ const en: typeof fr = {
     nav: 'Sections',
     customize: 'Customise',
     animations: 'Animations',
-    settings: 'Settings'
+    settings: 'Settings',
+    roster: 'Team'
   },
 
   panel: {
@@ -97,6 +98,25 @@ const en: typeof fr = {
     menuNew: 'New cycle',
     menuRenameAria: 'Rename {name}',
     menuRemoveAria: 'Delete {name}'
+  },
+
+  roster: {
+    title: 'Team',
+    hint: 'Each teammate is a star: a colour and an expression.',
+    add: 'Add',
+    unnamed: 'Unnamed',
+    color: 'Colour',
+    expression: 'Expression',
+    removeLabel: 'Remove',
+    remove: 'Remove {name}',
+    removeTitle: 'Remove "{name}"?',
+    removeDetail: 'This star will be removed from the team.',
+    removeConfirm: 'Remove',
+    rename: 'Rename {name}',
+    renameTitle: 'Rename the star',
+    nameField: 'Teammate name',
+    renameConfirm: 'Rename',
+    empty: 'No one here. Add a first star.'
   },
 
   units: {

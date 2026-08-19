@@ -32,7 +32,8 @@ export default {
     nav: 'Sections',
     customize: 'Personnaliser',
     animations: 'Animations',
-    settings: 'Réglages'
+    settings: 'Réglages',
+    roster: 'Équipe'
   },
 
   panel: {
@@ -121,6 +122,25 @@ export default {
     menuNew: 'Nouveau cycle',
     menuRenameAria: 'Renommer {name}',
     menuRemoveAria: 'Supprimer {name}'
+  },
+
+  roster: {
+    title: 'Équipe',
+    hint: 'Chaque coéquipier est une étoile : une couleur et une expression.',
+    add: 'Ajouter',
+    unnamed: 'Sans nom',
+    color: 'Couleur',
+    expression: 'Expression',
+    removeLabel: 'Retirer',
+    remove: 'Retirer {name}',
+    removeTitle: 'Retirer « {name} » ?',
+    removeDetail: 'Cette étoile sera retirée de l’équipe.',
+    removeConfirm: 'Retirer',
+    rename: 'Renommer {name}',
+    renameTitle: 'Renommer l’étoile',
+    nameField: 'Nom du coéquipier',
+    renameConfirm: 'Renommer',
+    empty: 'Personne ici. Ajoutez une première étoile.'
   },
 
   units: {

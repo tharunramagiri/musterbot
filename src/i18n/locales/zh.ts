@@ -25,7 +25,8 @@ const zh: typeof fr = {
     nav: '版块',
     customize: '个性化',
     animations: '动画',
-    settings: '设置'
+    settings: '设置',
+    roster: '团队'
   },
 
   panel: {
@@ -100,6 +101,25 @@ const zh: typeof fr = {
     menuNew: '新建序列',
     menuRenameAria: '重命名 {name}',
     menuRemoveAria: '删除 {name}'
+  },
+
+  roster: {
+    title: '团队',
+    hint: '每位队友都是一颗星：一种颜色和一种表情。',
+    add: '添加',
+    unnamed: '未命名',
+    color: '颜色',
+    expression: '表情',
+    removeLabel: '移除',
+    remove: '移除 {name}',
+    removeTitle: '移除“{name}”？',
+    removeDetail: '这颗星将从团队中移除。',
+    removeConfirm: '移除',
+    rename: '重命名 {name}',
+    renameTitle: '重命名这颗星',
+    nameField: '队友姓名',
+    renameConfirm: '重命名',
+    empty: '这里还没有人。添加第一颗星吧。'
   },
 
   units: {

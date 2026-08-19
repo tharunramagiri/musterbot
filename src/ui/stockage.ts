@@ -11,7 +11,7 @@
 const PREFIXE = 'musterbot:'
 
 /** Tout ce que l'application persiste. */
-const NOMS = ['cycles', 'cycle', 'forme', 'couleur', 'expression', 'langue'] as const
+const NOMS = ['cycles', 'cycle', 'forme', 'couleur', 'expression', 'langue', 'equipe'] as const
 
 export type NomStocke = (typeof NOMS)[number]
 

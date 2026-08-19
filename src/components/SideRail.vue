@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue'
 import { t } from '@/i18n'
 
-export type ViewId = 'animations' | 'personnaliser' | 'reglages'
+export type ViewId = 'animations' | 'personnaliser' | 'reglages' | 'equipe'
 
 const view = defineModel<ViewId>({ default: 'personnaliser' })
 
@@ -13,7 +13,8 @@ const view = defineModel<ViewId>({ default: 'personnaliser' })
 const ITEMS = computed<Array<{ id: ViewId; label: string }>>(() => [
   { id: 'personnaliser', label: t('rail.customize') },
   { id: 'animations', label: t('rail.animations') },
-  { id: 'reglages', label: t('rail.settings') }
+  { id: 'reglages', label: t('rail.settings') },
+  { id: 'equipe', label: t('rail.roster') }
 ])
 
 /**
@@ -114,6 +115,22 @@ const muted = ref<ViewId | null>(null)
             de Solar, qui se lit mal a cette taille. Melange de bibliotheques
             assume : c'est la seule des trois ou Solar ne convenait pas.
           -->
+                    <!--
+            Equipe : le groupe de personnes de Remix (`ri:team-fill`). Simple,
+            lisible a 18 px, et distinct de la palette du personnalisateur.
+          -->
+          <svg
+            v-else-if="item.id === 'equipe'"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              fill="currentColor"
+              d="M12 11a4 4 0 1 0 0-8a4 4 0 0 0 0 8m-6 9a6 6 0 0 1 12 0v1H6zM17 11a3 3 0 1 0 .5-5.94M21 20v-0.5a5.5 5.5 0 0 0-3-4.91M7 11a3 3 0 1 1-.5-5.94M3 20v-0.5a5.5 5.5 0 0 1 3-4.91"
+            />
+          </svg>
           <svg v-else width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
             <path
               fill="currentColor"

@@ -7,6 +7,7 @@ import ExportBar from '@/components/ExportBar.vue'
 import CycleDialog from '@/components/CycleDialog.vue'
 import GifDialog from '@/components/GifDialog.vue'
 import Settings from '@/components/Settings.vue'
+import Roster from '@/components/Roster.vue'
 import SideRail, { type ViewId } from '@/components/SideRail.vue'
 import Timeline from '@/components/Timeline.vue'
 import { nomDeCycle, t } from '@/i18n'
@@ -488,7 +489,11 @@ const NOM = 'MUSTERBOT'
  *   fait exactement ce pour quoi il est la.
  */
 const forme = computed(() =>
-  view.value === 'reglages' || nue.value ? DEFAULT_SHAPE : shape.value
+  view.value === 'reglages' || nue.value
+    ? DEFAULT_SHAPE
+    : view.value === 'equipe'
+      ? 'star'
+      : shape.value
 )
 
 /** Duree d'une humeur. Assez longue pour qu'on la remarque sans qu'elle agite. */
@@ -964,6 +969,11 @@ watch(
               @click="addBlock(s.id)"
             />
           </div>
+        </template>
+
+        <!-- equipe : le roster d'etoiles, autonome, ne touche pas au personnalisateur -->
+        <template v-else-if="view === 'equipe'">
+          <Roster />
         </template>
 
         <!-- personnalisation -->
