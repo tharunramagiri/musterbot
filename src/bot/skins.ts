@@ -152,6 +152,14 @@ export const SHAPES: BotShape[] = [
 export const SHAPE_BY_ID = new Map<string, BotShape>(SHAPES.map((s) => [s.id, s]))
 export const DEFAULT_SHAPE = 'cercle'
 
+/**
+ * Forme proposee au premier lancement (rien de sauvegarde). C'est la marque du
+ * produit : on ouvre sur l'etoile. Reste distincte de `DEFAULT_SHAPE` — le
+ * cercle est la reference NEUTRE du moteur (identique a « pas de forme »), ce
+ * que protege `skins.test.ts` et le favicon ; l'etoile n'est que ce qui s'affiche.
+ */
+export const PREMIERE_FORME = 'star'
+
 export type ColorId =
   | 'encre'
   | 'creme'
